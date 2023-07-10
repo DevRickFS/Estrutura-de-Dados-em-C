@@ -176,7 +176,7 @@ int main() {
             case 1:
               verificacao = 1;
                 while (verificacao != 0){
-                  printf("Digita a Fita de DNA: ");
+                  printf("\nDigita a Fita de DNA: ");
                   scanf("%s", fita);
                   verificacao = verificacaoFita(fita);
                   qualquer = TesteVerify(fita);
