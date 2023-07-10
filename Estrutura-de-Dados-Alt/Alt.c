@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -170,6 +169,7 @@ int main() {
     int selecao = -1;
     int verificacao;
     char fita[tam];
+    int qualquer;
     while (selecao!= 0){
           selecao = MenuView();
           switch (selecao){
@@ -179,6 +179,7 @@ int main() {
                   printf("Digita a Fita de DNA: ");
                   scanf("%s", fita);
                   verificacao = verificacaoFita(fita);
+                  qualquer = TesteVerify(fita);
                   if (verificacao == 0){
                     int i;
                     for (i=0; fita[i]!='\0';i++){
@@ -214,3 +215,30 @@ int main() {
 
       return 0;
 };
+
+
+int TesteVerify(char dados[tam]){
+    int i, controle;
+    int  vetor[99];
+    controle=0;
+    int j=0;
+    for (i=0;i<strlen(dados);i++){
+        if (dados[i] !='A' && dados[i] != 'T' && dados[i] != 'G' && dados[i] != 'C'){
+            vetor[j] = i;
+            j++;
+            if (i+1 == strlen(dados) && sizeof(vetor) > 0){
+                controle = 1;
+            };
+        }
+    }
+    printf("Dados inseridos incorretos e seus indices\n");
+    for ( i = 0; i < j; i++)
+
+    {
+        printf("| %i - %c | ", vetor[i]+1, dados[vetor[i]]);
+
+    }
+    
+    return controle;
+
+}
