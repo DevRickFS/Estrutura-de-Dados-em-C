@@ -13,7 +13,7 @@ typedef struct No{
 NO aresta[maximo];
 
 void inserirAresta(int num1, int num2, int Peso, int i){
-    if (num1 > maximo || num2 > maximo || num1 < 0 || num2 < 0){
+    if (num1 > maximo - 1 || num2 > maximo - 1 || num1 < 0 || num2 < 0){
         printf("Erro\n");
     } else {
         aresta[i].Vi = num1;
